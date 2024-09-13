@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SabaScheduler", "SabaScheduler\SabaScheduler.csproj", "{F1898EF7-3FDC-4CBA-8C8F-830FE9A1ECDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SabaScheduler.Core", "SabaScheduler.Core\SabaScheduler.Core.csproj", "{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1898EF7-3FDC-4CBA-8C8F-830FE9A1ECDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1898EF7-3FDC-4CBA-8C8F-830FE9A1ECDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1898EF7-3FDC-4CBA-8C8F-830FE9A1ECDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1898EF7-3FDC-4CBA-8C8F-830FE9A1ECDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D2C655F-DE8D-47AB-B25E-FEA12B1816D6}
+	EndGlobalSection
+EndGlobal
