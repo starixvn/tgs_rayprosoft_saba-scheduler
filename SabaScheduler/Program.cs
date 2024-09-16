@@ -5,11 +5,14 @@ using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using SabaScheduler.Core;
 using SabaScheduler.Core.DependencyInjection;
+using SabaScheduler.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSentry();
 
 // Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+
 builder.Services
 	.AddOptions<AppSettings>()
 	.Configure((AppSettings options, IServiceProvider sp) =>
@@ -21,7 +24,12 @@ builder.Services
 	.AddScheduler()
 	.AddCoreService();
 
-builder.Services.AddHttpLogging(logging => logging.LoggingFields = HttpLoggingFields.All).AddHealthChecks();
+builder.Services
+	.AddHttpLogging(logging => logging.LoggingFields = HttpLoggingFields.All)
+	.AddHealthChecks();
+
+builder.Services.AddScoped<ExceptionMiddleware>();
+
 builder.Services.AddWebClient(builder.Configuration);
 
 var excludeExtensions = new[] { "html", "ico", "png", "jpg" };
@@ -63,9 +71,7 @@ var app = builder.Build();
 app.UseRequestDecompression();
 
 app.MapHealthChecks("/health");
-
 app.MapHealthChecks("/healthcheck");
-
 app.MapHealthChecks("/");
 
 app.Services.UseCoreScheduler();
