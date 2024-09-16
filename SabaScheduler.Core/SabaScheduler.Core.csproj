@@ -7,6 +7,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Sentry" Version="4.10.2" />
+		<PackageReference Include="Sentry.AspNetCore" Version="4.10.2" />
 		<PackageReference Include="Coravel" Version="5.0.4" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Refit" Version="7.1.2" />

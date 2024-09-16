@@ -12,16 +12,16 @@ public static class ServiceExtension
 {
 	public static IServiceCollection AddCoreService(this IServiceCollection service)
 	{
-		service.AddTransient<RetryReachLimitTransInvocable>();
+		service.AddTransient<ReachLimitTransInvocable>();
 		service.AddTransient<ProviderHandler>();
 		return service;
 	}
 
-	public static void UseCoreScheduler(this IServiceProvider app)
+	public static void UseCoreScheduler(this IServiceProvider app, IConfiguration configuration)
 	{
 		app.UseScheduler(scheduler =>
 		{
-			scheduler.Schedule<RetryReachLimitTransInvocable>().Hourly();
+			scheduler.Schedule<ReachLimitTransInvocable>().EverySeconds(int.Parse(configuration["PolicySettings:ReachLimitTransIntervalTime"]!));
 		});
 	}
 
