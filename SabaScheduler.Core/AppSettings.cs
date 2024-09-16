@@ -2,5 +2,5 @@
 
 public class AppSettings
 {
-	public string? VendorId { get; set; }
+	public string VendorId { get; set; } = "";
 }

@@ -29,8 +29,8 @@ public static class ServiceExtension
 	{
 		service.AddRefitClient<IProviderClient>().ConfigureHttpClient(client =>
 		{
-			client.BaseAddress = new Uri(configuration.GetConnectionString("StatementReport")!);
-		}).AddHttpMessageHandler<ProviderHandler>(); // convert to content-type: x-www-form-urlencoded
+			client.BaseAddress = new Uri(configuration.GetConnectionString("ProviderUrl")!);
+		}).AddHttpMessageHandler<ProviderHandler>(); // content-type: x-www-form-urlencoded
 
 		return service;
 	}

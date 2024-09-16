@@ -31,7 +31,7 @@ internal class RetryReachLimitTransInvocable(IOptions<AppSettings> appSettings, 
 			Txns = g.Select(x => x.txn).ToList()
 		});
 
-		// Output the grouped data
+		// TO DO: Remove useless log
 		foreach (var group in groupedByAction)
 		{
 			Console.WriteLine($"Action: {group.Action}, count: {group.Txns.Count}");
