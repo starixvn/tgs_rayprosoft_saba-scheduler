@@ -51,7 +51,7 @@ internal class ReachLimitTransInvocable(IOptions<AppSettings> appSettings, ISent
 
 			if (group.Txns.Count > MaxRow)
 			{
-				_ = events.AppendLine("...");
+				_ = events.AppendLine("- ...");
 			}
 		}
 

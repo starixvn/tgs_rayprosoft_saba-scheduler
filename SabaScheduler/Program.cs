@@ -1,4 +1,5 @@
 using Coravel;
+using Fanex.Data.Postgres;
 using Microsoft.AspNetCore.HttpLogging;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -6,11 +7,15 @@ using OpenTelemetry.Trace;
 using SabaScheduler.Core;
 using SabaScheduler.Core.DependencyInjection;
 using SabaScheduler.Middlewares;
+using SabaScheduler.Repository.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSentry();
 
 // Add services to the container.
+builder.Services.AddFanexPostgres(builder.Configuration, connectionStringSection: "FanexConnectionStrings");
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services
@@ -22,7 +27,8 @@ builder.Services
 	})
 	.Services
 	.AddScheduler()
-	.AddCoreService();
+	.AddCoreService()
+	.AddRepositories();
 
 builder.Services
 	.AddHttpLogging(logging => logging.LoggingFields = HttpLoggingFields.All)

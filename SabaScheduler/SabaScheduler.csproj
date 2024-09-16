@@ -21,6 +21,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SabaScheduler.Core\SabaScheduler.Core.csproj" />
+    <ProjectReference Include="..\SabaScheduler.Repository\SabaScheduler.Repository.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="App_Data\SpNames.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 </Project>

@@ -13,6 +13,8 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Refit" Version="7.1.2" />
 		<PackageReference Include="Refit.HttpClientFactory" Version="7.1.2" />
+		<PackageReference Include="Fanex.Data.Postgres" Version="4.3.0-beta3" />
+		<PackageReference Include="Fanex.Data.Repository" Version="4.3.0-beta3" />
 	</ItemGroup>
 
 </Project>

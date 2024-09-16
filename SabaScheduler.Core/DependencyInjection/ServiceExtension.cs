@@ -13,6 +13,7 @@ public static class ServiceExtension
 	public static IServiceCollection AddCoreService(this IServiceCollection service)
 	{
 		service.AddTransient<ReachLimitTransInvocable>();
+		service.AddTransient<ScanInvalidTicketInvocable>();
 		service.AddTransient<ProviderHandler>();
 		return service;
 	}
@@ -22,6 +23,7 @@ public static class ServiceExtension
 		app.UseScheduler(scheduler =>
 		{
 			scheduler.Schedule<ReachLimitTransInvocable>().Cron(configuration["PolicySettings:ReachLimitTransCronTime"]);
+			scheduler.Schedule<ScanInvalidTicketInvocable>().Cron(configuration["PolicySettings:ScanInvalidTicketCronTime"]);
 		});
 	}
 
