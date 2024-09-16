@@ -17,11 +17,11 @@ public static class ServiceExtension
 		return service;
 	}
 
-	public static void UseCoreScheduler(this IServiceProvider app, IConfiguration configuration)
+	public static void UseCoreScheduler(this IServiceProvider app)
 	{
 		app.UseScheduler(scheduler =>
 		{
-			scheduler.Schedule<ReachLimitTransInvocable>().EverySeconds(int.Parse(configuration["PolicySettings:ReachLimitTransIntervalTime"]!));
+			scheduler.Schedule<ReachLimitTransInvocable>().Hourly();
 		});
 	}
 

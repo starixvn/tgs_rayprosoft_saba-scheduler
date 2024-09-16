@@ -74,6 +74,6 @@ app.MapHealthChecks("/health");
 app.MapHealthChecks("/healthcheck");
 app.MapHealthChecks("/");
 
-app.Services.UseCoreScheduler(builder.Configuration);
+app.Services.UseCoreScheduler();
 
 app.Run();
