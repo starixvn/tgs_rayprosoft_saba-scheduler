@@ -52,6 +52,6 @@ internal class ReachLimitTransInvocable(IOptions<AppSettings> appSettings, ISent
 				_ = events.AppendLine("- ...");
 		}
 
-		sentryClient.CaptureMessage(events.ToString(), SentryLevel.Fatal);
+		_ = sentryClient.CaptureMessage(events.ToString(), SentryLevel.Fatal);
 	}
 }

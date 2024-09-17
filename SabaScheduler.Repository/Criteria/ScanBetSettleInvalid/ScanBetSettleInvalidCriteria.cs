@@ -1,10 +1,16 @@
 ﻿using Fanex.Data.Repository;
 using SabaScheduler.Repository.Helpers;
 
-namespace SabaScheduler.Repository.Criteria;
+namespace SabaScheduler.Repository.Criteria.ScanBetSettleInvalid;
 
-public class ScanBetSettleInvalidCriteria : CriteriaBase, INonQueryCommand
+public class ScanBetSettleInvalidCriteria : CriteriaBase
 {
+	public long? Txid { get; set; }
+
+	public string? RefId { get; set; }
+
+	public string? OperationId { get; set; }
+
 	public string? StatusCode { get; set; }
 
 	public string? ErrMsg { get; set; }

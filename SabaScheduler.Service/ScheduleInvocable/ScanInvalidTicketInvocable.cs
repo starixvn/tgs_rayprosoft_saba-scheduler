@@ -1,18 +1,25 @@
-﻿using Coravel.Invocable;
+﻿using System.Text;
+using Coravel.Invocable;
 using SabaScheduler.Repository;
-using SabaScheduler.Repository.Criteria;
+using SabaScheduler.Repository.Criteria.ScanBetSettleInvalid;
 
 namespace SabaScheduler.Service.ScheduleInvocable;
 
-public class ScanInvalidTicketInvocable(ISentryClient sentryClient, IBetRepository betRepository) : IInvocable
+public class ScanInvalidTicketInvocable(ISentryClient sentryClient, IBetRepository repository) : IInvocable
 {
 	public async Task Invoke()
 	{
-		var exist = await betRepository.IsInvalidTicketExist(new ScanBetSettleInvalidCriteria());
+		var result = await repository.ScanBetSettleInvalidTicket(new ScanBetSettleInvalidCriteria());
 
-		if (!exist)
+		if (result is null)
+		{
 			return;
+		}
 
-		_ = sentryClient.CaptureMessage("Invalid ticket running...", SentryLevel.Fatal);
+		var events = new StringBuilder();
+		_ = events.AppendLine($"Invalid Ticket Running");
+		_ = events.AppendLine($"- Txid: {result.Txid}, OperationId: {result.OperationId}, RefId: {result.RefId}");
+
+		_ = sentryClient.CaptureMessage(events.ToString(), SentryLevel.Fatal);
 	}
 }

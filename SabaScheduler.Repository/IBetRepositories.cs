@@ -1,8 +1,8 @@
-﻿using SabaScheduler.Repository.Criteria;
+﻿using SabaScheduler.Repository.Criteria.ScanBetSettleInvalid;
 
 namespace SabaScheduler.Repository;
 
 public interface IBetRepository
 {
-	Task<bool> IsInvalidTicketExist(ScanBetSettleInvalidCriteria criteria);
+	Task<ScanBetSettleInvalidSPResult?> ScanBetSettleInvalidTicket(ScanBetSettleInvalidCriteria scanBetSettleInvalidCriteria);
 };

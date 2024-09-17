@@ -1,16 +1,20 @@
 ﻿namespace SabaScheduler.Repository;
 
 using Fanex.Data.Repository;
-using SabaScheduler.Repository.Criteria;
+using SabaScheduler.Repository.Criteria.ScanBetSettleInvalid;
 
 public class BetRepositoryImp(IDynamicRepository dynamicRepository) : IBetRepository
 {
 	private const string SuccessSpStatusCode = "0";
 
-	public async Task<bool> IsInvalidTicketExist(ScanBetSettleInvalidCriteria criteria)
+	public async Task<ScanBetSettleInvalidSPResult?> ScanBetSettleInvalidTicket(ScanBetSettleInvalidCriteria scanBetSettleInvalidCriteria)
 	{
-		_ = await dynamicRepository.ExecuteAsync(criteria);
+		var result = await dynamicRepository.GetAsync<ScanBetSettleInvalidSPResult>(scanBetSettleInvalidCriteria);
+		if (scanBetSettleInvalidCriteria.StatusCode!.Equals(SuccessSpStatusCode))
+		{
+			return null;
+		}
 
-		return criteria.Equals(SuccessSpStatusCode);
+		return result;
 	}
 }
