@@ -5,6 +5,8 @@ WORKDIR /src
 COPY ["nuget.config", "."]
 COPY ["SabaScheduler/SabaScheduler.csproj", "SabaScheduler/"]
 COPY ["SabaScheduler.Core/SabaScheduler.Core.csproj", "SabaScheduler.Core/"]
+COPY ["SabaScheduler.Core/SabaScheduler.Repository.csproj", "SabaScheduler.Repository/"]
+COPY ["SabaScheduler.Core/SabaScheduler.Service.csproj", "SabaScheduler.Service/"]
 RUN dotnet restore "./SabaScheduler/./SabaScheduler.csproj"
 
 COPY . .
