@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SabaScheduler", "SabaSchedu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SabaScheduler.Core", "SabaScheduler.Core\SabaScheduler.Core.csproj", "{5B630B35-C83D-4BBF-8C6D-47A5B02C099A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SabaScheduler.Repository", "SabaScheduler.Repository\SabaScheduler.Repository.csproj", "{C4E42058-E0CF-44A1-9285-AB9B5DA8CA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SabaScheduler.Repository", "SabaScheduler.Repository\SabaScheduler.Repository.csproj", "{C4E42058-E0CF-44A1-9285-AB9B5DA8CA4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SabaScheduler.Service", "SabaScheduler.Service\SabaScheduler.Service.csproj", "{B66A9481-5160-4495-9F9D-DF0DD1016F41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C4E42058-E0CF-44A1-9285-AB9B5DA8CA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E42058-E0CF-44A1-9285-AB9B5DA8CA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4E42058-E0CF-44A1-9285-AB9B5DA8CA4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66A9481-5160-4495-9F9D-DF0DD1016F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66A9481-5160-4495-9F9D-DF0DD1016F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66A9481-5160-4495-9F9D-DF0DD1016F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66A9481-5160-4495-9F9D-DF0DD1016F41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using SabaSingleWallet.Repositories.Helpers;
 
-namespace SabaScheduler.Core.Criteria;
+namespace SabaScheduler.Repository.Criteria;
 
 public class BetSettleInvalidCriteria : CriteriaBase
 {

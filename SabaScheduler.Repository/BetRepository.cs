@@ -1,21 +1,15 @@
 ﻿namespace SabaScheduler.Repository;
 
 using Fanex.Data.Repository;
-using SabaScheduler.Core.Criteria;
-using SabaScheduler.Core.Repositories;
+using SabaScheduler.Repository.Criteria;
 
-public class BetRepositoryImp : IBetRepository
+public class BetRepositoryImp(IDynamicRepository dynamicRepository) : IBetRepository
 {
-	private readonly IDynamicRepository dynamicRepository;
-
-	public BetRepositoryImp(IDynamicRepository dynamicRepository)
-	{
-		this.dynamicRepository = dynamicRepository;
-	}
-
 	public async Task<bool> IsInvalidTicketExist(BetSettleInvalidCriteria criteria)
 	{
-		_ = await dynamicRepository.GetAsync<object>(criteria);
-		return criteria.SpResult == 1;
+		var result = await dynamicRepository.GetAsync<int>(criteria);
+
+		// TODO: Remove Magic number
+		return result == 1;
 	}
 }

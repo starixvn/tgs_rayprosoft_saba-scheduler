@@ -1,6 +1,5 @@
 ﻿using Fanex.Data.Repository;
 using Microsoft.Extensions.DependencyInjection;
-using SabaScheduler.Core.Repositories;
 
 namespace SabaScheduler.Repository.DependencyInjection;
 

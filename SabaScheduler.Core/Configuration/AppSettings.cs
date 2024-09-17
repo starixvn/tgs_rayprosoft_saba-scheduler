@@ -1,4 +1,4 @@
-﻿namespace SabaScheduler.Core;
+﻿namespace SabaScheduler.Core.Configuration;
 
 public class AppSettings
 {

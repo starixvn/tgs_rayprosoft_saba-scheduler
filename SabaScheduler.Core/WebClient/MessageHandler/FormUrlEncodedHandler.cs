@@ -2,7 +2,7 @@
 
 namespace SabaScheduler.Core.WebClient.MessageHandler;
 
-public class ProviderHandler : DelegatingHandler
+public class FormUrlEncodedHandler : DelegatingHandler
 {
 	protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 	{

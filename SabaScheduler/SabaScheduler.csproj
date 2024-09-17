@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SabaScheduler.Core\SabaScheduler.Core.csproj" />
     <ProjectReference Include="..\SabaScheduler.Repository\SabaScheduler.Repository.csproj" />
+    <ProjectReference Include="..\SabaScheduler.Service\SabaScheduler.Service.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

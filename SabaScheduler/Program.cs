@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.HttpLogging;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
-using SabaScheduler.Core;
+using SabaScheduler.Core.Configuration;
 using SabaScheduler.Core.DependencyInjection;
 using SabaScheduler.Middlewares;
 using SabaScheduler.Repository.DependencyInjection;
+using SabaScheduler.Service.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSentry();
@@ -16,18 +17,10 @@ builder.WebHost.UseSentry();
 builder.Services.AddFanexPostgres(builder.Configuration, connectionStringSection: "FanexConnectionStrings");
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-builder.Services.AddEndpointsApiExplorer();
-
 builder.Services
-	.AddOptions<AppSettings>()
-	.Configure((AppSettings options, IServiceProvider sp) =>
-	{
-		var configuration = sp.GetRequiredService<IConfiguration>();
-		configuration.GetSection("AppSettings").Bind(options);
-	})
-	.Services
+	.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"))
 	.AddScheduler()
-	.AddCoreService()
+	.AddScheduleService()
 	.AddRepositories();
 
 builder.Services

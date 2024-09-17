@@ -1,6 +1,6 @@
-﻿using SabaScheduler.Core.Criteria;
+﻿using SabaScheduler.Repository.Criteria;
 
-namespace SabaScheduler.Core.Repositories;
+namespace SabaScheduler.Repository;
 
 public interface IBetRepository
 {
