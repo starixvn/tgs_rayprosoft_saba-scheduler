@@ -4,5 +4,5 @@ namespace SabaScheduler.Repository;
 
 public interface IBetRepository
 {
-	Task<bool> IsInvalidTicketExist(BetSettleInvalidCriteria criteria);
+	Task<bool> IsInvalidTicketExist(ScanBetSettleInvalidCriteria criteria);
 };

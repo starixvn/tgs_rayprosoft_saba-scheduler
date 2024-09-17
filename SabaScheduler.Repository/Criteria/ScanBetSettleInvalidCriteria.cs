@@ -1,11 +1,13 @@
 ﻿using Fanex.Data.Repository;
-using SabaSingleWallet.Repositories.Helpers;
+using SabaScheduler.Repository.Helpers;
 
 namespace SabaScheduler.Repository.Criteria;
 
-public class BetSettleInvalidCriteria : CriteriaBase
+public class ScanBetSettleInvalidCriteria : CriteriaBase, INonQueryCommand
 {
-	public int SpResult { get; set; } = 0;
+	public string? StatusCode { get; set; }
+
+	public string? ErrMsg { get; set; }
 
 	public override string GetSettingKey() => StoreProcedureMapper.BetSettleInvalidSP;
 

@@ -5,11 +5,12 @@ using SabaScheduler.Repository.Criteria;
 
 public class BetRepositoryImp(IDynamicRepository dynamicRepository) : IBetRepository
 {
-	public async Task<bool> IsInvalidTicketExist(BetSettleInvalidCriteria criteria)
-	{
-		var result = await dynamicRepository.GetAsync<int>(criteria);
+	private const string SuccessSpStatusCode = "0";
 
-		// TODO: Remove Magic number
-		return result == 1;
+	public async Task<bool> IsInvalidTicketExist(ScanBetSettleInvalidCriteria criteria)
+	{
+		_ = await dynamicRepository.ExecuteAsync(criteria);
+
+		return criteria.Equals(SuccessSpStatusCode);
 	}
 }

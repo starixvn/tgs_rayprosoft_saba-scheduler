@@ -8,7 +8,7 @@ public class ScanInvalidTicketInvocable(ISentryClient sentryClient, IBetReposito
 {
 	public async Task Invoke()
 	{
-		var exist = await betRepository.IsInvalidTicketExist(new BetSettleInvalidCriteria());
+		var exist = await betRepository.IsInvalidTicketExist(new ScanBetSettleInvalidCriteria());
 
 		if (!exist)
 			return;
